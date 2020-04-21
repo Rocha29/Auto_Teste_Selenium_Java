@@ -27,7 +27,12 @@
             <artifactId>commons-io</artifactId>
             <version>2.4</version>
         </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.easetech/easytest-core -->
+        <dependency>
+            <groupId>org.easetech</groupId>
+            <artifactId>easytest-core</artifactId>
+            <version>1.4.0</version>
+        </dependency>
 
     </dependencies>
 

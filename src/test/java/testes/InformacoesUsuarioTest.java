@@ -1,14 +1,17 @@
 package testes;
 
 import static org.junit.Assert.*;
-
 import Suporte.Generator;
 import Suporte.Screenshot;
+import org.easetech.easytest.annotation.DataLoader;
+import org.easetech.easytest.annotation.Param;
+import org.easetech.easytest.runner.DataDrivenTestRunner;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,7 +22,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
-
+@RunWith(DataDrivenTestRunner.class)
+@DataLoader(filePaths="InformacoesUsuarioTest.csv")
 public class InformacoesUsuarioTest {
     private WebDriver navegador;
 
@@ -61,8 +65,8 @@ public class InformacoesUsuarioTest {
 
     }
 
-   // @Test
-    public void testAdicionarUmaInformacaoAdicionalDoUsuario() {
+    @Test
+    public void testAdicionarUmaInformacaoAdicionalDoUsuario(@Param(name="tipo") String tipo, @Param(name="contato") String contato, @Param(name="mensagem") String mensagemEsperada) {
 
 
         // clicar no botão através do seu xpath //button[@data-target="addmoredata"]
@@ -73,17 +77,17 @@ public class InformacoesUsuarioTest {
 
         // Na combo de name "type" escolher a opção "phone"
         WebElement CampoType = popupAddMoreData.findElement(By.name("type"));
-        new Select(CampoType).selectByVisibleText("Phone");
+        new Select(CampoType).selectByVisibleText(tipo);
 
         // No campo de name "contact" digitar "+5511999999999"
-        popupAddMoreData.findElement(By.name("contact")).sendKeys("+5511999999999");
+        popupAddMoreData.findElement(By.name("contact")).sendKeys(contato);
         //No link de text "SAVE" que está na popup
         popupAddMoreData.findElement(By.linkText("SAVE")).click();
 
         // na mensagem de id "toast-container" validar o que texto é "your contact has been added!"
         WebElement mensagemPop = navegador.findElement(By.id("toast-container"));
         String mensagem = mensagemPop.getText();
-        assertEquals("Your contact has been added!", mensagem);
+        assertEquals(mensagemEsperada, mensagem);
     }
     @Test
     public void removerUmContatoDeUmUsuario() {
@@ -99,7 +103,7 @@ public class InformacoesUsuarioTest {
             String mensagem = mensagemPop.getText();
             assertEquals("Rest in peace, dear phone!", mensagem);
 
-            String ScreenshotArquivo = "C:\\test-report\\taskit" + Generator.dataHoraParaArquivo() + test.getMethodName() + ".png";
+            String ScreenshotArquivo = "C:\\test-report\\taskit\\" + Generator.dataHoraParaArquivo() + test.getMethodName() + ".png";
             Screenshot.tirar(navegador, ScreenshotArquivo);
 
         //aguardar até 10 segundos para que a janela desapareca
