@@ -1,11 +1,11 @@
 package testes;
 
-import Suporte.Web;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import pages.LoginFormPage;
+import pages.LoginPage;
+import Suporte.Web;
 
 public class informacoesUsuarioPageObectsTest {
     private WebDriver navegador;
@@ -15,13 +15,18 @@ public class informacoesUsuarioPageObectsTest {
     }
     @Test
     public  void testAdicionarUmaInformacaoAdicionalDoUsuario(){
-        new LoginFormPage(navegador)
-                .click //Verificar aula 22
+        new LoginPage(navegador)
+                .clicarSignIn()
+                .fazerLogin("julio0001","123456")
+                .clicarMe()
+                .clicarAbaMoreDataAboutYou()
+                .clicarBotaoAddMoreDataAboutYou();
 
 
     }
     @After
     public  void  tearDown(){
+
         navegador.quit();
     }
 }
