@@ -1,11 +1,11 @@
-testAdicionarUmaInformacaoAdicionalDoUsuario,tipo,contato,mensagem,Duration(ms)
-"",Phone,+551146690123,Your contact has been added!,762.0
-"",Phone,+551146690124,Your contact has been added!,721.0
-"",Phone,+551146690125,Your contact has been added!,757.0
-"",Phone,+551146690126,Your contact has been added!,846.0
-"",Phone,+551146690127,Your contact has been added!,752.0
-"",Phone,+551146690128,Your contact has been added!,730.0
-"",Phone,+551146690129,Your contact has been added!,779.0
-"",Phone,+551146690120,Your contact has been added!,634.0
-"",E-mail,+email20042020@rocha.com,Your contact has been added!,669.0
-"",E-mail,+email21042020@rocha.com,Your contact has been added!,876.0
+testAdicionarUmaInformacaoAdicionalDoUsuario,tipo,contato,mensagem,Duration(ms),Duration(ms)
+"",Phone,+551146690123,Your contact has been added!,762.0,762.0
+"",Phone,+551146690124,Your contact has been added!,681.0,681.0
+"",Phone,+551146690125,Your contact has been added!,757.0,757.0
+"",Phone,+551146690126,Your contact has been added!,680.0,680.0
+"",Phone,+551146690127,Your contact has been added!,706.0,706.0
+"",Phone,+551146690128,Your contact has been added!,685.0,685.0
+"",Phone,+551146690129,Your contact has been added!,779.0,779.0
+"",Phone,+551146690120,Your contact has been added!,634.0,634.0
+"",E-mail,+email20042020@rocha.com,Your contact has been added!,767.0,767.0
+"",E-mail,+email21042020@rocha.com,Your contact has been added!,810.0,810.0
